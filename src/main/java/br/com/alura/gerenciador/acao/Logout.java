@@ -5,19 +5,18 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.alura.gerenciador.modelo.Banco;
-
-public class RemoveEmpresa implements Acao {
+public class Logout implements Acao {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
-		Integer empresaId = Integer.parseInt(id);
-		Banco.removeEmpresa(empresaId);
-
-		return "redirect:listaEmpresas";
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		return "redirect:formLogin";
 	}
 
 }

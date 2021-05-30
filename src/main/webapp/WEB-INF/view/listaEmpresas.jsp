@@ -34,8 +34,8 @@
 				<td width="50%" style="text-align: center;">${ dataFormatada }</td>
 				<td>
 					
-					<c:url value="/mostraEmpresa" var="linkMostraEmpresa"/>
-					<c:url value="/removeEmpresa" var="linkRemoveEmpresa"/>
+					<c:url value="/app/mostraEmpresa" var="linkMostraEmpresa"/>
+					<c:url value="/app/removeEmpresa" var="linkRemoveEmpresa"/>
 					<a href="${linkMostraEmpresa}?id=${empresa.id}">Editar</a>
 					<a href="${linkRemoveEmpresa}?id=${empresa.id}">Remover</a>
 				</td>
@@ -43,5 +43,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
+	<p>Usuário logado: ${usuarioLogado.login}</p>
+	<c:import url="logout-partial.jsp" />
 </body>
 </html>

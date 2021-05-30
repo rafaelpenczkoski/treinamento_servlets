@@ -18,6 +18,7 @@ public class EditaEmpresa implements Acao {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		DateTimeFormatter formatter = Util.getDateTimeFormatter();
 		String nomeEmpresa = request.getParameter("nome");
 		String id = request.getParameter("id");
@@ -32,7 +33,7 @@ public class EditaEmpresa implements Acao {
 		System.out.println("Alterando empresa (" + nomeEmpresa + ")");
 
 		Integer empresaId = Integer.parseInt(id);
-		Empresa empresa = Banco.findById(empresaId);
+		Empresa empresa = Banco.findEmpresaById(empresaId);
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dataAbertura);
 

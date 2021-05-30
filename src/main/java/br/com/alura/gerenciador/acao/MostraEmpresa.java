@@ -18,7 +18,7 @@ public class MostraEmpresa implements Acao {
 		String id = request.getParameter("id");
 		Integer empresaId = Integer.parseInt(id);
 
-		Empresa empresa = Banco.findById(empresaId);
+		Empresa empresa = Banco.findEmpresaById(empresaId);
 
 		request.setAttribute("empresa", empresa);
 		return "forward:formNovaEmpresa.jsp";

@@ -31,7 +31,7 @@ public class NovaEmpresa implements Acao {
 
 		Empresa empresa = new Empresa(nomeEmpresa, dataAbertura);
 
-		Banco.adiciona(empresa);
+		Banco.adicionaEmpresa(empresa);
 
 		request.setAttribute("nomeEmpresa", nomeEmpresa);
 		return "redirect:listaEmpresas";
